@@ -1,0 +1,241 @@
+/* ============================================================
+   Pricing Cards · 样式表
+   核心考点：盒模型（padding 内间距）、Flexbox（gap 行间距 +
+   等高卡片）、交互状态（hover/focus 不只靠颜色）
+   ============================================================ */
+
+/* ---------- 1. 设计变量 ---------- */
+:root {
+    color-scheme: light dark;
+
+    /* 颜色 */
+    --color-bg: #f4f5f7;
+    --color-surface: #ffffff;
+    --color-text: #1a1a1a;
+    --color-muted: #6b7280;
+    --color-line: #e5e7eb;
+    --color-primary: #2563eb;
+    --color-primary-hover: #1d4ed8;
+    --color-on-primary: #ffffff;
+
+    /* 字体 */
+    --font-heading: 'Fraunces', 'Noto Sans SC', Georgia, serif;
+    --font-body: 'Inter', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+
+    /* 其他 */
+    --radius: 16px;
+    --shadow: 0 4px 24px rgb(0 0 0 / 0.08);
+    --shadow-hover: 0 8px 20px rgb(37 99 235 / 0.35);
+}
+
+/* ---------- 2. 深色模式（跟随系统设置，纯 CSS 实现） ---------- */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-bg: #0f1115;
+        --color-surface: #1a1d23;
+        --color-text: #e5e7eb;
+        --color-muted: #9ca3af;
+        --color-line: #2a2e36;
+        --color-primary: #60a5fa;
+        --color-primary-hover: #93c5fd;
+        --color-on-primary: #0f172a;
+        --shadow: 0 4px 24px rgb(0 0 0 / 0.5);
+        --shadow-hover: 0 8px 20px rgb(96 165 250 / 0.3);
+    }
+}
+
+/* ---------- 3. 基础重置 ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-bg);
+}
+
+/* ---------- 4. 页面 ---------- */
+.page {
+    padding: 3rem 1rem;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.page-header h1 {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    margin-bottom: 0.25rem;
+}
+
+.page-header p {
+    color: var(--color-muted);
+    font-size: 0.95rem;
+}
+
+/* ---------- 5. 卡片行（Flexbox：gap 管兄弟间距，不用 margin） ---------- */
+.cards {
+    display: flex;
+    gap: 1.5rem;          /* 行内间距统一用 gap */
+    align-items: stretch; /* 默认行为：三张卡片等高 */
+}
+
+/* ---------- 6. 单张卡片（盒模型：内间距全部用 padding） ---------- */
+.card {
+    position: relative;      /* 为推荐徽标提供定位基准 */
+    flex: 1;                 /* 三张等宽 */
+    display: flex;
+    flex-direction: column;  /* 纵向排列，配合 margin-top:auto 让按钮贴底 */
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius);
+    padding: 2rem 1.5rem;
+    box-shadow: var(--shadow);
+}
+
+/* 推荐方案：加粗主色边框 + 更重投影 + 轻微上浮 */
+.card--recommended {
+    border: 2px solid var(--color-primary);
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-8px);
+}
+
+/* 推荐徽标：absolute 定位在卡片顶部中央 */
+.badge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-primary);
+    color: var(--color-on-primary);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.9rem;
+    border-radius: 999px;
+    white-space: nowrap;
+}
+
+/* ---------- 7. 排版层级：价格 > 方案名 > 功能 ---------- */
+.plan-name {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-muted);
+    margin-bottom: 0.5rem;
+}
+
+/* 价格：卡片上最突出的元素 */
+.price {
+    font-family: var(--font-heading);
+    font-size: 2.75rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+}
+
+.price .period {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--color-muted);
+}
+
+.tagline {
+    color: var(--color-muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.25rem;
+}
+
+/* 功能列表：flex:1 吃掉多余空间，把按钮压到底部 */
+.features {
+    list-style: none;
+    flex: 1;
+    margin-bottom: 1.5rem;
+}
+
+.features li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+/* 对勾：用伪元素画，不用额外标签 */
+.features li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+/* ---------- 8. 按钮与交互状态 ---------- */
+.btn {
+    margin-top: auto;        /* 列表长短不一也能让按钮对齐底部 */
+    display: block;
+    text-align: center;
+    font: inherit;
+    font-weight: 600;
+    color: var(--color-on-primary);
+    background-color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+    border-radius: 10px;
+    padding: 0.7rem;
+    text-decoration: none;
+    transition: background-color 0.2s, box-shadow 0.2s, transform 0.1s;
+}
+
+/* 次要方案：描边按钮 */
+.btn-outline {
+    background-color: transparent;
+    color: var(--color-primary);
+}
+
+/* 悬停：背景变化 + 投影（不只靠颜色区分） */
+.btn:hover {
+    background-color: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
+    box-shadow: var(--shadow-hover);
+}
+
+.btn-outline:hover {
+    color: var(--color-on-primary);
+}
+
+/* 键盘焦点：轮廓 + 投影，Tab 到按钮时清晰可见 */
+.btn:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+    box-shadow: var(--shadow-hover);
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+/* ---------- 9. 响应式：窄屏竖排 ---------- */
+@media (max-width: 760px) {
+    .cards {
+        flex-direction: column;
+    }
+
+    .card--recommended {
+        transform: none; /* 竖排后不再上浮 */
+    }
+
+    .page-header h1 {
+        font-size: 1.7rem;
+    }
+}

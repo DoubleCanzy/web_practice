@@ -19,6 +19,7 @@ HTML 和 CSS 的学习与练习项目集合。
 │   ├── blog-post-page/ # 博客文章页（长文语义标记/纯 HTML）
 │   ├── contact-form/ # 联系表单（表单接线/校验/fieldset）
 │   ├── photo-showcase/ # 照片展（图片 alt/宽高/图注/视频）
+│   ├── pricing-cards/ # 定价卡片（Flexbox 等高/hover/focus）
 │   └── WORKFLOW.md     # 工作流笔记
 └── practice/           # 进阶练习
     └── 1.视差滚动/      # 视差滚动效果练习
@@ -41,4 +42,5 @@ HTML 和 CSS 的学习与练习项目集合。
 | [blog-post-page](Basic/blog-post-page/) | 博客文章页：长文语义标记（blockquote/code/figure） |[Blog Post Page](https://roadmap.sh/projects/blog-post-page)|
 | [contact-form](Basic/contact-form/) | 联系表单：name/value 接线、校验、fieldset/legend |[Contact Form](https://roadmap.sh/projects/contact-form)|
 | [photo-showcase](Basic/photo-showcase/) | 照片展：图片 alt/宽高、figure 图注、内嵌视频 |[Photo Showcase](https://roadmap.sh/projects/photo-showcase)|
+| [pricing-cards](Basic/pricing-cards/) | 定价卡片：Flexbox 等高、推荐位突出、按钮状态 |[Pricing Cards](https://roadmap.sh/projects/pricing-cards)|
 | [视差滚动](practice/1.视差滚动/) | Parallax scrolling 视差滚动效果 |------|
