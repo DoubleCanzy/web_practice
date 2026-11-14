@@ -1,0 +1,161 @@
+<form>
+  <ul>
+    <li>
+      <label for="userid">User ID:</label>
+      <input type="text" id="userid" name="userid" />
+    </li>
+    <li>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" />
+    </li>
+    <li>
+      <button type="submit">Log in</button>
+    </li>
+  </ul>
+</form>
+
+<form>
+  <fieldset>
+    <legend>Who is your favorite pony?</legend>
+    <ul>
+      <li>
+        <label for="pinkie">Pinkie Pie</label>
+        <input type="radio" id="pinkie" name="pony" value="pinkie" checked />
+      </li>
+      <li>
+        <label for="rainbow">Rainbow Dash</label>
+        <input type="radio" id="rainbow" name="pony" value="rainbow" />
+      </li>
+      <li>
+        <label for="twilight">Twilight Sparkle</label>
+        <input type="radio" id="twilight" name="pony" value="twilight" />
+      </li>
+    </ul>
+  </fieldset>
+  <fieldset>
+    <legend>Hotdog preferences</legend>
+    <ul>
+      <li>
+        <label for="vegan">Vegan</label>
+        <input type="checkbox" id="vegan" name="hotdog" value="vegan" />
+      </li>
+      <li>
+        <label for="onions">Onions</label>
+        <input type="checkbox" id="onions" name="hotdog" value="onions" />
+      </li>
+    </ul>
+  </fieldset>
+  <button>Submit</button>
+</form>
+
+<form>
+  <h2>Edit your preferences</h2>
+  <ul>
+    <li>
+      <label for="email">Email</label>
+      <input type="text" id="email" name="email" />
+    </li>
+    <li>
+      <label for="website">Website</label>
+      <input type="text" id="website" name="website" />
+    </li>
+    <li>
+      <label for="phone">Phone number</label>
+      <input type="text" id="phone" name="phone" />
+    </li>
+    <li>
+      <label for="fave-color">Favorite color</label>
+      <input type="color" id="fave-color" name="fave-color" />
+    </li>
+    <li>
+      <button>Update preferences</button>
+    </li>
+  </ul>
+</form>
+
+<form>
+  <ul>
+    <li>
+      <label for="food">Pick your favorite food:</label>
+      <select name="food" id="food">
+        <optgroup label="Mains">
+          <option value="salad">Salad</option>
+          <option value="curry">Curry</option>
+          <option value="pizza">Pizza</option>
+          <option value="fajitas">Fajitas</option>
+        </optgroup>
+        <optgroup label="Snacks">
+          <option value="biscuits">Biscuits</option>
+          <option value="crisps">Crisps</option>
+          <option value="fruit">Fruit</option>
+          <option value="breadsticks">Breadsticks</option>
+        </optgroup>
+      </select>
+    </li>
+    <li>
+      <button>Submit choice</button>
+    </li>
+  </ul>
+</form>
+
+<form>
+  <fieldset>
+    <legend>Personal details</legend>
+    <ul>
+      <li>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" />
+      </li>
+      <li>
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" />
+      </li>
+    </ul>
+  </fieldset>
+  <fieldset>
+    <legend>Contact Information</legend>
+    <ul>
+      <li>
+        <label for="comment">Comment:</label>
+        <input type="text" id="comment" name="comment" />
+      </li>
+      <li>
+        <label for="email">Email (include if you want a reply):</label>
+        <input type="email" id="email" name="email" />
+      </li>
+    </ul>
+  </fieldset>
+</form>
+
+<form>
+  <h2>Enter your support query</h2>
+  <ul>
+    <li>
+      <label for="uname">User name:</label>
+      <input
+        type="text"
+        name="uname"
+        id="uname"
+        required
+        minlength="5"
+        maxlength="20"
+      />
+    </li>
+    <li>
+      <label for="email">Email address:</label>
+      <input type="email" name="email" id="email" required />
+    </li>
+    <li>
+      <label for="phone">Phone number:</label>
+      <input type="tel" name="phone" id="phone" required maxlength="15" />
+    </li>
+    <li>
+      <label for="comment">Comment:</label>
+      <textarea name="comment" id="comment" required maxlength="200">
+      </textarea>
+    </li>
+    <li>
+      <button>Submit comment</button>
+    </li>
+  </ul>
+</form>

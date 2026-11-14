@@ -1,0 +1,71 @@
+body {
+  font: 1.2em / 1.5 sans-serif;
+}
+/* 在这里添加样式 */
+h1 {
+  color: blue;
+}
+h2 {
+  color: aliceblue;
+  background-color: blue;
+}
+span {
+  font-size: 200%;
+}
+
+#special {
+  background-color: beige;
+}
+.alert {
+  border-color: aliceblue;
+  border-radius: 2px;
+}
+.alert.stop {
+  background-color: brown;
+}
+.alert.go {
+  background-color: aquamarine;
+}
+
+a {
+  color: chocolate;
+}
+a:visited {
+  color: aqua;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.container p:first-child {
+  font-size: 150%;
+}
+
+.container p:first-child::first-line {
+  color: red;
+}
+
+tr:nth-child(even) {
+  background-color: #333;
+  color: #fff;
+}
+
+h2 + p {
+  color: red;
+}
+.list > li {
+  list-style: none;
+  border-bottom: 1px solid #ccc;
+}
+a[title] {
+  border-color: pink;
+}
+
+a[href*="contact"] {
+  border-color: orange;
+}
+
+a[href^="a"] {
+  border-color: green;
+}
